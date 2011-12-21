@@ -9,9 +9,9 @@ url = "http://www.okcupid.com"
 browser.goto url
 
 # Enter the username
-browser.text_field(:id, "sidebar_signin_username").set "username"
+browser.text_field(:id, "sidebar_signin_username").set "okcupidmatcher"
 # Enter the password
-browser.password(:id, "sidebar_signin_password").set "password"
+browser.password(:id, "sidebar_signin_password").set "nomorenerds"
 
 # Click the signin button
 browser.form(:id, "sidebar_signin_form").submit
