@@ -42,7 +42,7 @@ end
 # Loop through the users to send each a message
 usernames.each do |username|
   # Concatenate a url to the Non-JS version of the message send page
-  nonjs_url = "http://www.okcupid.com/messages?r1=" + usernames[0] + "&compose=1"
+  nonjs_url = "http://www.okcupid.com/messages?r1=" + username + "&compose=1"
   # Navigate the browser to the message send page
   browser.goto nonjs_url
   # Sleep the browser to let the page load
