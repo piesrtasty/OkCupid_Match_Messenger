@@ -41,30 +41,16 @@ end
 
 # Loop through the users to send each a message
 usernames.each do |username|
+  sleep 3
   # Concatenate a url to the Non-JS version of the message send page
   nonjs_url = "http://www.okcupid.com/messages?r1=" + username + "&compose=1"
   # Navigate the browser to the message send page
   browser.goto nonjs_url
   # Sleep the browser to let the page load
-  sleep 5
+  sleep 3
   puts "done sleeping"
   # Set the message body
   browser.text_field(:name, 'body').set("hi")
   # Send the message
   browser.link(:text, "Send").click
 end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
