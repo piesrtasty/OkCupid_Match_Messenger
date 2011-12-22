@@ -53,4 +53,6 @@ usernames.each do |username|
   browser.text_field(:name, 'body').set("hi")
   # Send the message
   browser.link(:text, "Send").click
+  # Output the username
+  puts "Messaged #{username}"
 end
