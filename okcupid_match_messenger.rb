@@ -26,7 +26,28 @@ links.each do |link|
   end
 end
 
-# profile_links = browser.link(:class, 'ajax_load_profile_link')
+# Sleep the browser to manually do infinite scroll
+sleep 10
+
+puts "Done Sleeping"
+
+link_count = 0
+
+profile_links = []
+
+all_links = browser.links
+
+all_links.each do |al|
+  link_count += 1
+  puts al.class_name
+
+end
+ 
+puts count
+
+# Attempt 1
+
+# profile_links = browser.links(:class, 'ajax_load_profile_link')
 # 
 # count = 0
 # 
@@ -35,9 +56,39 @@ end
 # end
 # 
 # puts count
-count = 0
-all_links = browser.links
-all_links.each do |al|
-  count += 1
-end
-puts count
+
+# Attempt 2
+
+# link_count = 0
+# 
+# profile_links = []
+# 
+# all_links = browser.links
+# 
+# all_links.each do |al|
+#   link_count += 1
+#   puts al.class_name
+# 
+# end
+#  
+# puts count
+# 
+# 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
