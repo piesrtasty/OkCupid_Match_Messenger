@@ -1,0 +1,8 @@
+[1221/230425:WARNING:webdriver_capabilities_parser.cc(97)] Ignoring unrecognized capability: browserName
+[1221/230425:WARNING:webdriver_capabilities_parser.cc(97)] Ignoring unrecognized capability: cssSelectorsEnabled
+[1221/230425:WARNING:webdriver_capabilities_parser.cc(97)] Ignoring unrecognized capability: javascriptEnabled
+[1221/230425:WARNING:webdriver_capabilities_parser.cc(97)] Ignoring unrecognized capability: nativeEvents
+[1221/230425:WARNING:webdriver_capabilities_parser.cc(97)] Ignoring unrecognized capability: platform
+[1221/230425:WARNING:webdriver_capabilities_parser.cc(97)] Ignoring unrecognized capability: rotatable
+[1221/230425:WARNING:webdriver_capabilities_parser.cc(97)] Ignoring unrecognized capability: takesScreenshot
+[1221/230425:WARNING:webdriver_capabilities_parser.cc(97)] Ignoring unrecognized capability: version

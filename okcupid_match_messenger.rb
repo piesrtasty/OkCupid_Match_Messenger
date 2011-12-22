@@ -1,7 +1,11 @@
-require 'safariwatir'
+# require 'safariwatir'
+require 'rubygems'
+require 'watir'
 
 # Create a new browser object
-browser = Watir::Safari.new
+# browser = Watir::Safari.new
+browser = Watir::IE.new
+
 # Specify the OkCupid URL
 url = "http://www.okcupid.com"
 
@@ -11,7 +15,8 @@ browser.goto url
 # Enter the username
 browser.text_field(:id, "sidebar_signin_username").set "okcupidmatcher"
 # Enter the password
-browser.password(:id, "sidebar_signin_password").set "nomorenerds"
+# browser.password(:id, "sidebar_signin_password").set "nomorenerds"
+browser.text_field(:id, "sidebar_signin_password").set "nomorenerds"
 
 # Click the signin button
 browser.form(:id, "sidebar_signin_form").submit
@@ -20,11 +25,12 @@ browser.form(:id, "sidebar_signin_form").submit
 links = browser.links
 
 # Find the link with text "Matches"
-links.each do |link|
-  if link.text == "Matches"
-    link.click
-  end
-end
+#links.each do |link|
+#  if link.text.include? "Matches"
+#    link.click
+#  end
+#end
+browser.link(:text, "Matches").click
 
 # Sleep the browser to manually do infinite scroll
 # sleep 10
@@ -43,21 +49,38 @@ all_spans.each do |span|
   end
 end
 
-profile_url = "http://www.okcupid.com/profile/" + usernames[0] + "?cf=regular"
+# profile_url = "http://www.okcupid.com/profile/" + usernames[0] + "?cf=regular"
 
-browser.goto profile_url
+nonjs_url = "http://www.okcupid.com/messages?r1=" + usernames[0] + "&compose=1"
 
-if browser.link(:id, "match-perc-stoplight-red").exists?
-  puts "we got a red"
-  browser.link(:id, "match-perc-stoplight-red").click()
-elsif browser.link(:id, "match-perc-stoplight-yellow").exists?
-  puts "we got a yellow"
-  browser.link(:id, "match-perc-stoplight-yellow")
-elsif browser.link(:id, "match-perc-stoplight-green").exists?
-  puts "we got a green"
-  browser.link(:id, "match-perc-stoplight-green")
+# browser.goto profile_url
+browser.goto nonjs_url
+
+sleep 5
+puts "done sleeping"
+
+# browser.frame(:index, 0).text_field(:id, "message_text").set "LOREM IPSUM"
+
+if browser.text_field(:name, 'body')
+  browser.text_field(:name, 'body').set("hi")
+else 
+  puts "no"
 end
 
+browser.link(:text, "Send").click
+
+# if browser.link(:id, "match-perc-stoplight-red").exists?
+#   puts "we got a red"
+#   browser.link(:id, "match-perc-stoplight-red").click()
+# elsif browser.link(:id, "match-perc-stoplight-yellow").exists?
+#   puts "we got a yellow"
+#   browser.link(:id, "match-perc-stoplight-yellow")
+# elsif browser.link(:id, "match-perc-stoplight-green").exists?
+#   puts "we got a green"
+#   browser.link(:id, "match-perc-stoplight-green")
+# end
+# 
+# browser.text_field(:id, "message_text").set "LOREM IPSUM"
 
 
 # match-perc-stoplight-red
