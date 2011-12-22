@@ -25,3 +25,19 @@ links.each do |link|
     link.click
   end
 end
+
+# profile_links = browser.link(:class, 'ajax_load_profile_link')
+# 
+# count = 0
+# 
+# profile_links.each do |pl|
+#   count += 1
+# end
+# 
+# puts count
+count = 0
+all_links = browser.links
+all_links.each do |al|
+  count += 1
+end
+puts count
