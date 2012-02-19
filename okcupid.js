@@ -1,34 +1,48 @@
-var zombie = require("zombie");
-b = new zombie.Browser({ debug: true })
+var request = require('request'),
+	jsdom = require('jsdom');
 
-b.visit("http://wwww.okcupid.com", function(err, browser) {
-	// if (browser.fill("sidebar_signin_username", "okcupidmatchmessenger"))	{
-	// 	console.log("yes");
-	// }
-	if (err)	{
-		console.log('Error:' + err.message)
-	} else	{
-		console.log('Page loaded successfully');
-		var item = browser.document.getElementById("sidebar_signin_password");
-	}
-	
- 
+request({uri: 'http://www.okcupid.com/login'}, function (error, response, body) {
+  if (!error && response.statusCode == 200) {
+    // console.log(body) // Print the google web page.
+  }
+
+  jsdom.env({
+  	html: body,
+  	scripts: [
+  		'http://code.jquery.com/jquery-1.5.min.js'
+  	]
+  }, function (err, window)	{
+  	var $ = window.jQuery;
+  	
+  	// console.log($("body").html());
+
+    // var form   = $('#htlbotForm');
+    // var data   = form.serialize();
+    // var url    = form.attr('action') || 'get';
+    // var type   = form.attr('enctype') || 'application/x-www-form-urlencoded';
+    // var method = form.attr('method');
+
+    request({
+      url    : "http://www.okcupid.com/login",
+      method : "post",
+      body   : "p=&dest=&username=piesrtasty&password=shutup%211",
+      headers : {
+        'Content-type' : 'application/x-www-form-urlencoded'
+      }
+    },function(error, response, body) {
+      // console.log("----");
+      // console.log();
+      // this assumes no error for brevity.
+      var newDoc = jsdom.env(body, ['http://code.jquery.com/jquery-1.5.min.js'], function(errors, window) {
+      // do your post processing
+        var $ = window.jQuery;
+
+        console.log($("#home_heading").html());
 
 
+      });
+    });
 
 
-
-  // if (err) {
-  //     console.log(err.message);
-  //   } else {
-  //     console.log(browser.html());
-  //     browser.clickLink("#click_me", function(err, browser) {
-  //       if (err) {
-  //         console.log(err.message);
-  //       } else {
-  //         console.log(browser.lastResponse);
-  //         browser.dump();
-  //       }
-  //     });
-  //   }
+  });
 });
