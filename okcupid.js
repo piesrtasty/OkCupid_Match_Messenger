@@ -18,7 +18,7 @@ request({uri: 'http://www.okcupid.com/login'}, function (error, response, body) 
     request({
       url    : "http://www.okcupid.com/login",
       method : "post",
-      body   : "p=&dest=&username=piesrtasty&password=shutup%211",
+      
       headers : {
         'Content-type' : 'application/x-www-form-urlencoded'
       }
