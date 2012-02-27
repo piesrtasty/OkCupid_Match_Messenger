@@ -7,8 +7,8 @@ zombie.visit("http://www.okcupid.com/login", {debug: false, scripts: false}, fun
   } else {
     // console.log(browser.html());
     browser.
-      fill("username", "piesrtasty").
-      fill("password", "shutup!1").
+      fill("username", "").
+      fill("password", "").
       clickLink("#login_form a:last", function(e, browswer, status)  {
         
         console.log(status);
