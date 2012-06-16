@@ -4,12 +4,14 @@ A Ruby Script to Auto-Message All of Your OkCupid Matches.
 
 ### Installation
 
+  Install dependencies.
+
   <code>gem install watir</code>
 
 ### Quick Start
 
-  1. Enter your OkCupid credentials and specify the message you want to send in the script.
+  Enter your OkCupid credentials and specify the message you want to send in the script.
   
-  2. Start the Ruby script.
+  Start the Ruby script.
 
     <code>ruby okcupid_match_messenger.rb</code>
