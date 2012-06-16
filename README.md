@@ -4,4 +4,4 @@ A Ruby Script to Auto-Message All of Your OkCupid Matches.
 
 ### Installation
 
-  $ gem install watir
+  <code>gem install watir</code>
